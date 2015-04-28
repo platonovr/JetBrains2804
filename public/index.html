@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myapp">
+<head>
+    <title>Notes application</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular/angular-resource.js"></script>
+    <script src="records.js"></script>
+</head>
+
+
+<body ng-controller="RecordsController">
+Your name: <input ng-model="username">
+<button ng-click="update()" ng-enter="update()">update</button>
+<div ng-repeat="record in records"
+     style="background-color:#EEE;padding:5px;width:300px;border:1px solid black;margin:10px;'">
+    <p>Number {{record.id}}</p>
+
+    <p>{{record.text}}</p>
+    <button ng-click="deleteNote(record.id)">Удалить</button>
+</div>
+Add record:<br>
+<textarea rows="10" cols="50" ng-model="text"></textarea>
+<button ng-click="add()">Add record</button>
+</body>
+</html>
